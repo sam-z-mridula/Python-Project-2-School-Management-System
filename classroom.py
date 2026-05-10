@@ -7,7 +7,7 @@ class Classroom:
         self.subjects = []      # List of Subject objects
 
     def add_student(self, student):
-        roll_no = f"{self.name}-{len(self.students) + 1}"
+        roll_no = f"{len(self.students) + 1}"
         student.id = roll_no 
         self.students.append(student)
 
@@ -22,5 +22,4 @@ class Classroom:
 
     def get_top_students(self, top_n=3):
         # Sort students based on their overall grade and return the top N students
-        sorted_students = sorted(self.students, key=lambda s: School.grade_to_value(s.grade), reverse=True)
-        return sorted_students[:top_n]
+        pass

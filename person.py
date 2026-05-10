@@ -14,7 +14,7 @@ class Teacher(Person):
         pass
 
     def evaluate_exam(self):
-        return random.randint(1, 100) # Simulating marks for the sake of example
+        return random.randint(30, 100) # Simulating marks for the sake of example
     
 
 class Student(Person):
@@ -31,8 +31,13 @@ class Student(Person):
         for grade in self.subject_grade.values():
             total_marks += School.grade_to_value(grade)
 
-        gpa = total_marks / len(self.subject_grade) # if self.subject_grade else 0
+        if total_marks == 0:
+            gpa = 0.00
+        else:
+            gpa = total_marks / len(self.subject_grade) # if self.subject_grade else 0
+
         self.grade = School.value_to_grade(gpa)
+        return self.grade
 
     @property
     def id(self):
